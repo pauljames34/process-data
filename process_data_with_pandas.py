@@ -2,7 +2,6 @@ from datetime import datetime
 import pandas as pd
 from dateutil.relativedelta import relativedelta
 
-# Specify the file path or URL
 file_path = 'data_in/people.csv'
 
 column_types = {
