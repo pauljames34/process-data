@@ -3,7 +3,7 @@ import pandas as pd
 from dateutil.relativedelta import relativedelta
 
 # Specify the file path or URL
-file_path = 'Source/people.csv'
+file_path = 'data_in/people.csv'
 
 column_types = {
     'First Name': str,
@@ -20,12 +20,14 @@ valid_dates =  data[data['Date of Birth as Date'].notna()].copy()
 
 valid_dates['Age in Years'] = valid_dates['Date of Birth as Date'].apply(lambda x: relativedelta(datetime.now(), x).years)
 
-valid_dates[['First Name', 'Family Name', 'Age in Years']].to_csv('Output/valid_dates.csv', index=False)
+valid_dates[['First Name', 'Family Name', 'Age in Years']].to_csv('output/valid_dates.csv', index=False)
 
-invalid_dates[['First Name', 'Family Name', 'Date of Birth']].to_csv('Output/invalid_dates.csv', index=False)
+invalid_dates[['First Name', 'Family Name', 'Date of Birth']].to_csv('output/invalid_dates.csv', index=False)
 
 print('Data processing complete')
 print('Check the Output folder for the results')
 print(f"Number of rows processed: {data.shape[0]}")
 print(f"Number of rows with valid dates: {valid_dates.shape[0]}")
 print(f"Number of rows with invalid dates: {invalid_dates.shape[0]}")
+
+
